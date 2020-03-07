@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mov: 0
-  velocMov: 6
+  velocMov: 7.5
   velocPulo: 12
   checaChao: {fileID: 6806816742936728528}
   camadaChao:

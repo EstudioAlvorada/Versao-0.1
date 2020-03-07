@@ -84,8 +84,9 @@ public class MovimentacaoJogador : MonoBehaviour
 
     IEnumerator tempoDash()
     {
-        velocMov = 10;
-        yield return new WaitForSeconds(.5f);
+        velocMov = 20;
+        corpo.velocity = new Vector2(corpo.velocity.x, 0f);
+        yield return new WaitForSeconds(.2f);
         velocMov = 6;
 
     }
