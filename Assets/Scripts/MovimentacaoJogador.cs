@@ -11,6 +11,8 @@ public class MovimentacaoJogador : MonoBehaviour
     [SerializeField] private GameObject checaChao;
     [SerializeField] private LayerMask camadaChao;
     bool noChao;
+    private bool olhandoDireita = true;
+
 
     [SerializeField] float velocQueda = 2.5f;
     [SerializeField] float multiplicadorPulinho = 2f;
@@ -19,6 +21,7 @@ public class MovimentacaoJogador : MonoBehaviour
     protected Joystick joystick;
     protected Joybutton joybutton;
     protected ButtonDash buttonDash;
+    Animator animator;
 
     protected bool jump;
     Rigidbody2D corpo;
@@ -31,7 +34,7 @@ public class MovimentacaoJogador : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
         buttonDash = FindObjectOfType<ButtonDash>();
-
+        animator = GetComponent<Animator>();
 
     }
 
@@ -44,8 +47,18 @@ public class MovimentacaoJogador : MonoBehaviour
 
         corpo.velocity = new Vector2(mov * velocMov, corpo.velocity.y);
 
+        if(corpo.velocity.x != 0f)
+            animator.SetBool("VelocAndando", true);
+        else
+        {
+            animator.SetBool("VelocAndando", false);
+        }
+
+        Debug.Log(corpo.velocity.x);
+
         Jump();
         Dash();
+        Inverte();
     }
 
     void Jump()
@@ -54,11 +67,13 @@ public class MovimentacaoJogador : MonoBehaviour
         {
             jump = true;
             corpo.velocity += Vector2.up * velocPulo;
+            animator.SetBool("Pulando", true);
         }
 
         if (jump && !joybutton.Pressed)
         {
             jump = false;
+            animator.SetBool("Pulando", false);
         }
 
         if(corpo.velocity.y < 0)
@@ -82,6 +97,17 @@ public class MovimentacaoJogador : MonoBehaviour
         }
     }
 
+    void Inverte()
+    {
+        if (mov > 0 && !olhandoDireita || mov < 0 && olhandoDireita)
+        {
+            olhandoDireita = !olhandoDireita;
+            Vector3 escala = transform.localScale;
+            escala.x *= -1;
+            transform.localScale = escala;
+        }
+    }
+
     IEnumerator tempoDash()
     {
         velocMov = 20;
@@ -89,5 +115,10 @@ public class MovimentacaoJogador : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         velocMov = 6;
 
+    }
+
+    public float GetVelocidade()
+    {
+        return this.corpo.velocity.x;
     }
 }
