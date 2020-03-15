@@ -24,6 +24,8 @@ public class MovimentacaoJogador : MonoBehaviour
     Animator animator;
 
     protected bool jump;
+    protected bool dash;
+
     Rigidbody2D corpo;
 
     // Start is called before the first frame update
@@ -91,9 +93,11 @@ public class MovimentacaoJogador : MonoBehaviour
 
     void Dash()
     {
-        if(buttonDash.Pressed)
+        if(buttonDash.Pressed && !dash)
         {
+            dash = true;
             StartCoroutine("tempoDash");
+            
         }
     }
 
@@ -114,6 +118,8 @@ public class MovimentacaoJogador : MonoBehaviour
         corpo.velocity = new Vector2(corpo.velocity.x, 0f);
         yield return new WaitForSeconds(.2f);
         velocMov = 6;
+        yield return new WaitForSeconds(.2f);
+        dash = false;
 
     }
 
