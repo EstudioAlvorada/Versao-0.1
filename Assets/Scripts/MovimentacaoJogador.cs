@@ -55,8 +55,7 @@ public class MovimentacaoJogador : MonoBehaviour
         {
             animator.SetBool("VelocAndando", false);
         }
-
-        Debug.Log(corpo.velocity.x);
+        
 
         Jump();
         Dash();
