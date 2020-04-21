@@ -7,10 +7,12 @@ using UnityEngine;
 public class TomaDano : MonoBehaviour
 {
     [SerializeField] GameObject jogador;
-    [SerializeField] SpriteRenderer jogadorSprite;
+    [SerializeField] PhotonAnimatorView jogadorSprite;
     //[SerializeField] PhotonView jogadorView;
     [SerializeField] private CinemachineVirtualCamera cameraJogador;
     PhotonView photonView;
+
+    Transform[] children;
 
     int contagemDano = 3;
     float tempoCorrido = 0f;
@@ -23,7 +25,10 @@ public class TomaDano : MonoBehaviour
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
-        jogadorSprite = GetComponent<SpriteRenderer>();
+        jogadorSprite = GetComponent<PhotonAnimatorView>();
+
+
+        children = GetComponentsInChildren<Transform>();
 
         Debug.Log(jogadorSprite != null ? "NÃO NULO" : "NULO");
     }
@@ -57,7 +62,6 @@ public class TomaDano : MonoBehaviour
 
             jogador.transform.position = new Vector2(Random.Range(-42.49f, -23.87f), Random.Range(8.15f, 4.1f));
 
-
             //var player = (GameObject)PhotonNetwork.Instantiate("Jogador", new Vector2(Random.Range(-8f, 8f), transform.position.y), Quaternion.identity);
             //cameraJogador.Follow = player.transform;
         }
@@ -66,18 +70,38 @@ public class TomaDano : MonoBehaviour
 
     IEnumerator Invencibilidade()
     {
-        invencivel = true;
-       
-        c.a = 0.5f;
-        jogadorSprite.material.color = c;
+        if (photonView.IsMine)
+        {
+            invencivel = true;
 
-        Debug.Log(jogadorSprite.material.color);
+            Color c = children[2].GetComponent<SpriteRenderer>().material.color;
 
-        yield return new WaitForSeconds(2f);
-        c.a = 1f;
-        jogadorSprite.material.color = c;
-       
-        invencivel = false;
+            foreach (var item in children)
+            {
+                if(item.GetComponent<SpriteRenderer>() != null)
+                {
+                    c.a = 0.5f;
+                    item.GetComponent<SpriteRenderer>().material.color = c;
+                }
+                    
+
+            }
+            yield return new WaitForSeconds(2f);
+            Debug.Log("Piscou");
+
+            foreach (var item in children)
+            {
+                if (item.GetComponent<SpriteRenderer>() != null)
+                {
+                    c.a = 1f;
+                    item.GetComponent<SpriteRenderer>().material.color = c;
+                }
+            }
+
+
+            invencivel = false;
+        }
+      
     }
 }
 
