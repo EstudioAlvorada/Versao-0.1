@@ -8,6 +8,7 @@ public class MenuPause : MonoBehaviour
     public static bool JogoPausado = false;
 
     public GameObject pausarMenu;
+    GameObject jogador;
 
     void Update()
     {
@@ -42,6 +43,8 @@ public class MenuPause : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+
+        Photon.Pun.PhotonNetwork.LeaveRoom();
     }
 
     public void Sair()
