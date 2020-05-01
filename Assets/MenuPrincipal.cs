@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using Photon.Pun;
+using Photon.Realtime;
+using System.Threading;
 
-public class MenuPrincipal : MonoBehaviour
+public class MenuPrincipal : MonoBehaviourPunCallbacks
 {
     #region Iniciar e Sair
     public void IniciarJogo()
@@ -12,10 +15,37 @@ public class MenuPrincipal : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void EscolherSala()
+    public void EntraSala(string sala)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            if (PhotonNetwork.InLobby)
+            {
+                PhotonNetwork.JoinOrCreateRoom(sala, new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
+
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
+        }
+    }
+
+    public void EscolherSala1()
+    {
+        EntraSala("Sala01");
+    }
+
+    public void EscolherSala2()
+    {
+        EntraSala("Sala02");
+
     }
 
     public void Sair()
@@ -33,4 +63,6 @@ public class MenuPrincipal : MonoBehaviour
         audioMixer.SetFloat("volume", volume);
     }
     #endregion
+
+    
 }

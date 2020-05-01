@@ -42,9 +42,10 @@ public class MenuPause : MonoBehaviour
     public void IrParaMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
 
         Photon.Pun.PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("Menu");
+
     }
 
     public void Sair()
