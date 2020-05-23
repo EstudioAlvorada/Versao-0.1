@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimentacaoJogador : MonoBehaviour
 {
@@ -60,6 +61,12 @@ public class MovimentacaoJogador : MonoBehaviour
         Jump();
         Dash();
         Inverte();
+
+        //if(Chegada.acabouPartida == true)
+        //{
+        //    Photon.Pun.PhotonNetwork.LeaveRoom();
+        //    SceneManager.LoadScene("Menu");
+        //}
     }
 
     void Jump()
@@ -126,4 +133,5 @@ public class MovimentacaoJogador : MonoBehaviour
     {
         return this.corpo.velocity.x;
     }
+    
 }

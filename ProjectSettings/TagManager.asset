@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Espinhos
+  - Chegada
+  - TextoChegada
   layers:
   - Default
   - TransparentFX
