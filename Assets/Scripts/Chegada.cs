@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,11 +29,13 @@ public class Chegada : MonoBehaviour
             if (photonView.IsMine)
             {
                 StartCoroutine("FimDeJogoVencedor");
+
             }
             else
             {
                 StartCoroutine("FimDeJogoPerdedor");
             }
+
         }
     }
 
@@ -42,10 +45,7 @@ public class Chegada : MonoBehaviour
         
         yield return new WaitForSeconds(3f);
 
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene("Menu");
-
-        textoChegada.text = "";
+        PhotonNetwork.DestroyAll();
 
         Debug.Log("Chegou");
     }
@@ -56,10 +56,7 @@ public class Chegada : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene("Menu");
-
-        textoChegada.text = "";
+        PhotonNetwork.DestroyAll();
 
         Debug.Log("Chegou");
     }
