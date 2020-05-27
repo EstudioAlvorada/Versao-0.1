@@ -38,6 +38,7 @@ public class Chegada : MonoBehaviour
 
         }
     }
+    
 
     IEnumerator FimDeJogoVencedor()
     {
