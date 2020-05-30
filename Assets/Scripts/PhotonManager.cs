@@ -31,7 +31,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        var player = PhotonNetwork.Instantiate("Jogador", new Vector2(290.083f, 20.20467f), Quaternion.identity);
+        var player = PhotonNetwork.Instantiate("Jogador", new Vector2(Random.Range(-42.49f, -23.87f), Random.Range(8.15f, 4.1f)), Quaternion.identity);
         cameraJogador.Follow = player.transform;
         player.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
         //cameraJogador.LookAt = player.transform;

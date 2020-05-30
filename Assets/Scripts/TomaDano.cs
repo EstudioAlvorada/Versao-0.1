@@ -36,20 +36,8 @@ public class TomaDano : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Espinhos")
-        {
-            if(!invencivel)
-            {
-                Debug.Log("Entrou");
-                contagemDano--;
-                StartCoroutine("Invencibilidade");
-            }
-            
-
-            if(contagemDano == 0)
-            {
-                contagemDano = 3;
-                Morre();
-            }
+        {           
+            Morre();
         }
     }
 

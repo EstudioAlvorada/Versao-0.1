@@ -14,7 +14,6 @@ public class MovimentacaoJogador : MonoBehaviour
     bool noChao;
     private bool olhandoDireita = true;
 
-
     [SerializeField] float velocQueda = 2.5f;
     [SerializeField] float multiplicadorPulinho = 2f;
 

@@ -27,17 +27,19 @@ public class Moedas : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (photonView.IsMine)
+        
+        if (other.gameObject.tag == "Moeda")
         {
-            if (other.gameObject.tag == "Moeda")
+            if (photonView.IsMine)
             {
                 Debug.Log("Pegou a Moeda");
                 contMoeda++;
                 textoMoedas.text = (contMoeda).ToString();
-
-                Destroy(other.gameObject);
             }
+           
+            Destroy(other.gameObject);
         }
+        
        
     }
 }
