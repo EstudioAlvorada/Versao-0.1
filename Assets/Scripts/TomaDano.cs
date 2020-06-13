@@ -31,6 +31,11 @@ public class TomaDano : MonoBehaviour
         children = GetComponentsInChildren<Transform>();
 
         Debug.Log(jogadorSprite != null ? "NÃO NULO" : "NULO");
+
+        if (photonView.IsMine)
+        {
+            photonView.Owner.NickName = ConexaoBanco.nomeUsuario;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -30,7 +30,7 @@ public class Moedas : MonoBehaviour
         
         if (other.gameObject.tag == "Moeda")
         {
-            if (photonView.IsMine)
+            if(photonView.IsMine)
             {
                 Debug.Log("Pegou a Moeda");
                 contMoeda++;

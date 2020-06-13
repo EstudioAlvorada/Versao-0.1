@@ -6,9 +6,33 @@ using UnityEngine.Audio;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Threading;
+using TMPro;
+using System.Linq;
+using Proyecto26;
 
 public class MenuPrincipal : MonoBehaviourPunCallbacks
 {
+    [SerializeField]
+    public TextMeshProUGUI campoNome;
+    List<Usuario> listaUsuario = new List<Usuario>();
+    string linkApi;
+
+
+    string nome = "Não está logado.";
+    
+
+    private void Start()
+    {
+        //nome = ConexaoBanco.nomeUsuario;
+
+        //if (string.IsNullOrEmpty(campoNome.text))
+        //{
+        //    campoNome.text = "Nome: " + nome;
+        //}
+
+        
+    }
+
     #region Iniciar e Sair
     public void IniciarJogo()
     {
@@ -64,5 +88,7 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     }
     #endregion
 
-    
+
+   
+
 }

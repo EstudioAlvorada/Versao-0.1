@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +19,8 @@ public class MovimentacaoJogador : MonoBehaviour
     [SerializeField] float velocQueda = 2.5f;
     [SerializeField] float multiplicadorPulinho = 2f;
 
+    [SerializeField]  private TextMeshProUGUI textoNome;
+    [SerializeField]  private Canvas canvasNome;
 
     protected Joystick joystick;
     protected Joybutton joybutton;
@@ -28,16 +32,20 @@ public class MovimentacaoJogador : MonoBehaviour
 
     Rigidbody2D corpo;
 
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         corpo = GetComponent<Rigidbody2D>();
 
+
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
         buttonDash = FindObjectOfType<ButtonDash>();
         animator = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -55,7 +63,6 @@ public class MovimentacaoJogador : MonoBehaviour
         {
             animator.SetBool("VelocAndando", false);
         }
-        
 
         Jump();
         Dash();
@@ -113,6 +120,7 @@ public class MovimentacaoJogador : MonoBehaviour
             olhandoDireita = !olhandoDireita;
             Vector3 escala = transform.localScale;
             escala.x *= -1;
+            canvasNome.transform.localScale = escala;
             transform.localScale = escala;
         }
     }
@@ -132,5 +140,7 @@ public class MovimentacaoJogador : MonoBehaviour
     {
         return this.corpo.velocity.x;
     }
+
+   
     
 }
