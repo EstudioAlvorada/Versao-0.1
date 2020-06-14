@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332994785}
   - component: {fileID: 332994786}
+  - component: {fileID: 332994787}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
   nome: {fileID: 1289684626}
   senha: {fileID: 859596004}
   textoErro: {fileID: 1313646441}
+--- !u!114 &332994787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332994784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372cffd9c64cfe84b9d494774331af6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &443519534
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     {
         Debug.Log("Saindo");
         Application.Quit();
-    }
+    }   
     #endregion
 
     #region Volume
@@ -88,7 +88,12 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     }
     #endregion
 
+    public void Ranking()
+    {
+        SceneManager.LoadScene("Ranking");
 
-   
+    }
+
+
 
 }

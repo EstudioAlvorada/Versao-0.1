@@ -10,3 +10,12 @@ public class Usuario
     public string pontuacao;
     public string numeroVitorias;
 }
+
+[SerializeField]
+public class UsuarioJson
+{
+   
+   public string Key;
+   public Usuario usuario;
+
+}

@@ -32,6 +32,8 @@ public class MovimentacaoJogador : MonoBehaviour
 
     Rigidbody2D corpo;
 
+    public static bool checkPoint = false;
+
 
 
 
@@ -63,6 +65,9 @@ public class MovimentacaoJogador : MonoBehaviour
         {
             animator.SetBool("VelocAndando", false);
         }
+
+        if (transform.position.x > 165f && !checkPoint)
+            checkPoint = true;
 
         Jump();
         Dash();
