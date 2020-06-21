@@ -10,13 +10,14 @@ using TMPro;
 using System.Linq;
 using Proyecto26;
 
+
 public class MenuPrincipal : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     public TextMeshProUGUI campoNome;
     List<Usuario> listaUsuario = new List<Usuario>();
     string linkApi;
-
+    public static int sala = 0;
 
     string nome = "Não está logado.";
     
@@ -29,6 +30,7 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
         //{
         //    campoNome.text = "Nome: " + nome;
         //}
+        Moedas.contMoeda = 0;
 
         
     }
@@ -63,11 +65,13 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
 
     public void EscolherSala1()
     {
+        sala = 1;
         EntraSala("Sala01");
     }
 
     public void EscolherSala2()
     {
+        sala = 2;
         EntraSala("Sala02");
 
     }

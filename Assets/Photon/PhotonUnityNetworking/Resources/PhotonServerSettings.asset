@@ -31,5 +31,9 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
+  - RPC_Soco
+  - RPC_ContaJogador
+  - RPC_DestroiMoeda
+  - RPC_Fim
   DisableAutoOpenWizard: 1
   ShowSettings: 1

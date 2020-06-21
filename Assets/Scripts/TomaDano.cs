@@ -30,7 +30,6 @@ public class TomaDano : MonoBehaviour
 
         children = GetComponentsInChildren<Transform>();
 
-        Debug.Log(jogadorSprite != null ? "NÃO NULO" : "NULO");
 
         if (photonView.IsMine)
         {
@@ -83,7 +82,6 @@ public class TomaDano : MonoBehaviour
 
             }
             yield return new WaitForSeconds(2f);
-            Debug.Log("Piscou");
 
             foreach (var item in children)
             {

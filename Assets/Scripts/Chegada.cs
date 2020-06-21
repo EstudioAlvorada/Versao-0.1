@@ -38,21 +38,24 @@ public class Chegada : MonoBehaviour
 
                 StartCoroutine("FimDeJogoVencedor");
 
+                photonView.RPC("RPC_Fim", RpcTarget.OthersBuffered, photonView.Owner.NickName);
+
             }
             else
             {
                 vitoria = 0;
-
-                StartCoroutine("FimDeJogoPerdedor");
+               
             }
-
-          
-
-
 
         }
     }
     
+    [PunRPC]
+    void RPC_Fim(string nomeVencedor)
+    {
+        StartCoroutine(FimDeJogoPerdedor(nomeVencedor));
+    }
+
 
     IEnumerator FimDeJogoVencedor()
     {
@@ -67,9 +70,9 @@ public class Chegada : MonoBehaviour
         Debug.Log("Chegou");
     }
 
-    IEnumerator FimDeJogoPerdedor()
+    IEnumerator FimDeJogoPerdedor(string nomeVencedor)
     {
-        textoChegada.text = "ALGUEM CHEGOU PRIMEIRO!!!";
+        textoChegada.text = nomeVencedor + " GANHOU!";
 
         yield return new WaitForSeconds(3f);
 

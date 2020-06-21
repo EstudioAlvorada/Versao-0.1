@@ -24,7 +24,6 @@ public class ButtonDash : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         Pressed = true;
-        Debug.Log("TESTE");
     }
 
     public void OnPointerUp(PointerEventData eventData)

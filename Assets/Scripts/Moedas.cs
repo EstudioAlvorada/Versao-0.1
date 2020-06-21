@@ -10,7 +10,7 @@ public class Moedas : MonoBehaviour
 
     TextMeshProUGUI textoMoedas;
     PhotonView photonView;
-    private int contMoeda = 0;
+    public static int contMoeda = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,8 @@ public class Moedas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        textoMoedas.text = (contMoeda).ToString();
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,11 +36,23 @@ public class Moedas : MonoBehaviour
                 Debug.Log("Pegou a Moeda");
                 contMoeda++;
                 textoMoedas.text = (contMoeda).ToString();
+
+                photonView.RPC("RPC_DestroiMoeda", RpcTarget.AllBufferedViaServer, other.gameObject.GetPhotonView().ViewID);
+
             }
-           
-            Destroy(other.gameObject);
+
         }
-        
-       
+
     }
+
+    [PunRPC]
+    void RPC_DestroiMoeda(int moedaId)
+    {
+        var moeda = PhotonView.Find(moedaId).gameObject;
+
+        Destroy(moeda.gameObject);
+
+    }
+    
+
 }

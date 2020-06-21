@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FullSerializer;
 
 public class ConexaoBanco : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class ConexaoBanco : MonoBehaviour
     private bool valido = true;
 
     List<Usuario> listaUsuario = new List<Usuario>();
+    private static fsSerializer serializer = new fsSerializer();
+
+    public delegate void GetUsersCallback(Dictionary<string, Usuario> users);
 
 
     Usuario verificacao = new Usuario();
@@ -190,34 +194,6 @@ public class ConexaoBanco : MonoBehaviour
         verificacao = usuario;
     }
 
-   
 
-    #region Lista
-
-    //IEnumerator PegaLista()
-    //{
-    //    VerificaTudo();
-
-    //    yield return new WaitForSeconds(3f);
-    //}
-
-    //public void VerificaTudo()
-    //{
-    //    linkApi = "https://versao-01.firebaseio.com/.json";
-
-    //    RestClient.Get<List<Usuario>>(linkApi).Then(response => {
-
-    //        SetTudo(response);
-
-    //    });
-    //}
-
-    //private void SetTudo(List<Usuario> response)
-    //{
-    //    listaUsuario = response;
-    //}
-
-    #endregion
-
-
+    
 }

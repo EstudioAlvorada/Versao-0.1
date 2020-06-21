@@ -10,6 +10,7 @@ TagManager:
   - Moeda
   - TextoMoedas
   - Nome
+  - Soco
   layers:
   - Default
   - TransparentFX
