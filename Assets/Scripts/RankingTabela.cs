@@ -76,7 +76,7 @@ public class RankingTabela : MonoBehaviour
 
     public void PopulaLista(Dictionary<string, Usuario> users)
     {
-        usuarios = users;
+        usuarios = users.OrderByDescending(p => p.Value.numeroVitorias).ThenBy(p => p.Value.pontuacao).ToDictionary(p => p.Key, p => p.Value);
 
         containerTemplate = transform.Find("ContainerTemplate");
         template = containerTemplate.Find("Template");
