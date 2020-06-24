@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "Marc\xE3o"
+  m_Name: Diego
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Pulando
@@ -325,7 +325,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: af9a872d251cbb14f885fdb2f31490b0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 50d256922a94a1f48828a6397bcae32f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -354,7 +354,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5e38dcc5bdb0e924693d72c5fc2fea12, type: 2}
+  m_Motion: {fileID: 7400000, guid: e2ff8db02c0dfad4c8982e56807d4677, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -381,7 +381,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 462a14d8cf76e45449f83e473852c0c5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 771bdeeb3bb7fc84f99bcb8e3dd63a87, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -410,7 +410,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d5121daa2c19d9c49aed36026d2d5257, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9acc40ea224d9854f8f781ab7d2dfacb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -433,7 +433,7 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: -24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102039510239209160}
-    m_Position: {x: 240, y: 0, z: 0}
+    m_Position: {x: 228, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102439052079139622}
     m_Position: {x: 588, y: 108, z: 0}
