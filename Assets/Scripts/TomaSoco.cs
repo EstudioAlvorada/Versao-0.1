@@ -36,6 +36,8 @@ public class TomaSoco : MonoBehaviour
         {
             if (photonView.IsMine)
             {
+                GerenciaSom.Play("espinhoSoco");
+
                 StartCoroutine("Inconsciente");
             }
            

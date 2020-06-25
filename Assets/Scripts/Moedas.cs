@@ -35,6 +35,7 @@ public class Moedas : MonoBehaviour
             {
                 Debug.Log("Pegou a Moeda");
                 contMoeda++;
+                GerenciaSom.Play("moedaSom");
                 textoMoedas.text = (contMoeda).ToString();
 
                 photonView.RPC("RPC_DestroiMoeda", RpcTarget.AllBufferedViaServer, other.gameObject.GetPhotonView().ViewID);

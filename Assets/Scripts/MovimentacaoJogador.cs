@@ -38,6 +38,7 @@ public class MovimentacaoJogador : MonoBehaviour
     public int nomeObjetoJogador = 0;
 
     public static bool checkPoint = false;
+    bool socando = false;
 
     [SerializeField] GameObject hitboxAtaque;
 
@@ -104,6 +105,8 @@ public class MovimentacaoJogador : MonoBehaviour
             jump = true;
             corpo.velocity += Vector2.up * velocPulo;
             animator.SetBool("Pulando", true);
+            GerenciaSom.Play("puloSom");
+
         }
 
         if (jump && !joybutton.Pressed)
@@ -132,7 +135,7 @@ public class MovimentacaoJogador : MonoBehaviour
 
     void Dash()
     {   
-        if (buttonDash.Pressed)
+        if (buttonDash.Pressed && !socando)
         {
             
             
@@ -145,8 +148,8 @@ public class MovimentacaoJogador : MonoBehaviour
 
             }
 
-          
-            
+
+
 
             //Debug.Log("Qtde Soco: " + qtdeSoco);
             //Debug.Log("Qtde Moeda: " + Moedas.contMoeda);
@@ -202,12 +205,17 @@ public class MovimentacaoJogador : MonoBehaviour
 
         ataqueHitBox.SetActive(true);
 
+        socando = true;
+        GerenciaSom.Play("socoSom");
+
         yield return new WaitForSeconds(0.5f);
 
         ataqueHitBox.SetActive(false);
 
         animator.SetBool("Socando", false);
-      
+        socando = false;
+
+
     }
 
     public float GetVelocidade()

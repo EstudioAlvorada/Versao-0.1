@@ -52,7 +52,9 @@ public class TomaDano : MonoBehaviour
         {
             //PhotonNetwork.Destroy(jogador);
 
-            if(MovimentacaoJogador.checkPoint)
+            GerenciaSom.Play("espinhoSoco");
+
+            if (MovimentacaoJogador.checkPoint)
                 jogador.transform.position = new Vector2(165f, 17.29f);
             else
                 jogador.transform.position = new Vector2(Random.Range(-42.49f, -23.87f), Random.Range(8.15f, 4.1f));

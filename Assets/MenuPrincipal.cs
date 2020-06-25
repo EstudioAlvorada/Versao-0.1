@@ -18,6 +18,9 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     List<Usuario> listaUsuario = new List<Usuario>();
     string linkApi;
     public static int sala = 0;
+    AudioSource menuAudio;
+    public static float volumePrincipal;
+
 
     string nome = "Não está logado.";
     
@@ -31,14 +34,15 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
         //    campoNome.text = "Nome: " + nome;
         //}
         Moedas.contMoeda = 0;
+        menuAudio = FindObjectOfType<AudioSource>();
 
-        
+        //FindObjectOfType<AudioManager>().Play("Tema");
     }
 
     #region Iniciar e Sair
     public void IniciarJogo()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("SelecaoPersonagem");
     }
 
     public void EntraSala(string sala)
@@ -88,7 +92,8 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
 
     public void AlterarVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        menuAudio.volume = volume;
+        volumePrincipal = volume;
     }
     #endregion
 
