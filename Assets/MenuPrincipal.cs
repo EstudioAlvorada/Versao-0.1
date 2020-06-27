@@ -19,7 +19,7 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     string linkApi;
     public static int sala = 0;
     AudioSource menuAudio;
-    public static float volumePrincipal;
+    public static float volumePrincipal = 1;
 
 
     string nome = "Não está logado.";

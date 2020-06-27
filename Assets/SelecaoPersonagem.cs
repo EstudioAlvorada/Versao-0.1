@@ -30,4 +30,16 @@ public class SelecaoPersonagem : MonoBehaviour
         personagem = "Jogador2";
         SceneManager.LoadScene("Salas");
     }
+
+    public void EscolhaAline()
+    {
+        personagem = "Jogador3";
+        SceneManager.LoadScene("Salas");
+    }
+
+    public void EscolhaFrancalino()
+    {
+        personagem = "Jogador4";
+        SceneManager.LoadScene("Salas");
+    }
 }

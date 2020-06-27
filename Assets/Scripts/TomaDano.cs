@@ -52,7 +52,7 @@ public class TomaDano : MonoBehaviour
         {
             //PhotonNetwork.Destroy(jogador);
 
-            GerenciaSom.Play("espinhoSoco");
+            GerenciaSom.Play("espinhoSom");
 
             if (MovimentacaoJogador.checkPoint)
                 jogador.transform.position = new Vector2(165f, 17.29f);
