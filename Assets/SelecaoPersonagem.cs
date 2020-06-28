@@ -42,4 +42,9 @@ public class SelecaoPersonagem : MonoBehaviour
         personagem = "Jogador4";
         SceneManager.LoadScene("Salas");
     }
+
+    public void IrParaMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

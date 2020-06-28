@@ -191,7 +191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 32966558}
+      - m_Target: {fileID: 2147411573}
         m_MethodName: IrParaMenu
         m_Mode: 1
         m_Arguments:

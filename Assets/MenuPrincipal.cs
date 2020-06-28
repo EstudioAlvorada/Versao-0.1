@@ -9,7 +9,7 @@ using System.Threading;
 using TMPro;
 using System.Linq;
 using Proyecto26;
-
+using UnityEngine.UI;
 
 public class MenuPrincipal : MonoBehaviourPunCallbacks
 {
@@ -20,6 +20,7 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
     public static int sala = 0;
     AudioSource menuAudio;
     public static float volumePrincipal = 1;
+    Slider sliderVolume;
 
 
     string nome = "Não está logado.";
@@ -35,8 +36,10 @@ public class MenuPrincipal : MonoBehaviourPunCallbacks
         //}
         Moedas.contMoeda = 0;
         menuAudio = FindObjectOfType<AudioSource>();
+        sliderVolume = FindObjectOfType<Slider>();
 
         //FindObjectOfType<AudioManager>().Play("Tema");
+        AlterarVolume(volumePrincipal);
     }
 
     #region Iniciar e Sair
