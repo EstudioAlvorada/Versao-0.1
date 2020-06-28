@@ -8,6 +8,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RankingTabela : MonoBehaviour
 {
@@ -97,8 +98,12 @@ public class RankingTabela : MonoBehaviour
             templateTransform.Find("TemplateVitoria").GetComponent<TextMeshProUGUI>().text = !string.IsNullOrWhiteSpace(usuarios.ElementAt(i).Value.numeroVitorias.ToString()) ? usuarios.ElementAt(i).Value.numeroVitorias.ToString() : "0";
             templateTransform.Find("TemplatePontuacao").GetComponent<TextMeshProUGUI>().text = !string.IsNullOrWhiteSpace(usuarios.ElementAt(i).Value.pontuacao.ToString()) ? usuarios.ElementAt(i).Value.pontuacao.ToString() : "0";
 
+            if (i <= 2)
+                templateTransform.Find("TemplateRank").GetComponent<Image>().sprite = Resources.Load<Sprite>("Coroa" + i);
+            else
+                templateTransform.Find("TemplateRanktxt").GetComponent<TextMeshProUGUI>().text = (i + 1).ToString();
+
             templateTransform.gameObject.SetActive(true);
         }
-
     }
 }   
