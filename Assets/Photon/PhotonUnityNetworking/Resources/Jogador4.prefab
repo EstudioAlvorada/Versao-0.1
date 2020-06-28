@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408963579616768382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08, y: 0.49, z: 0}
+  m_LocalPosition: {x: 1.08, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6291652306241524834}
@@ -157,7 +157,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -361,7 +362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.12, y: -0.04}
+  m_AnchoredPosition: {x: 0.12, y: -0.21}
   m_SizeDelta: {x: 17.98, y: 9.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4418830568436279566
@@ -383,7 +384,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &865469782828098970
 MonoBehaviour:
@@ -1206,7 +1207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6806816742936728528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1141, y: -0.713, z: 0.1582}
+  m_LocalPosition: {x: -0.16, y: -0.713, z: 0.1582}
   m_LocalScale: {x: 1.2258, y: 1.2258, z: 1.2258}
   m_Children: []
   m_Father: {fileID: 6291652306241524834}

@@ -31,6 +31,8 @@ public class Chegada : MonoBehaviour
     {
         if (other.gameObject.tag == "Chegada")
         {
+            StartCoroutine("SalvarDados");
+
             if (photonView.IsMine)
             {
                 vitoria = 1;
@@ -38,16 +40,14 @@ public class Chegada : MonoBehaviour
                 StartCoroutine("FimDeJogoVencedor");
 
                 photonView.RPC("RPC_Fim", RpcTarget.OthersBuffered, photonView.Owner.NickName);
-                StartCoroutine("SalvarDados");
 
             }
             else
             {
                 vitoria = 0;
 
-                StartCoroutine("SalvarDados");
-
             }
+
 
         }
     }
@@ -81,8 +81,6 @@ public class Chegada : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
             PhotonNetwork.DestroyAll();
 
-
-        Debug.Log("Chegou");
     }
 
     IEnumerator SalvarDados()
